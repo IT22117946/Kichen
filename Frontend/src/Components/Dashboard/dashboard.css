@@ -412,9 +412,9 @@
   box-sizing: border-box;
 
   position: fixed;
-  top: 0;
+  top: 65px; /* below global app header */
   left: 0;
-  height: 100vh;
+  height: calc(100vh - 65px);
   overflow-y: auto;
 }
 
@@ -534,7 +534,7 @@
 -------------------------------- */
 .ng-topbar{
   position: sticky;
-  top: 0;
+  top: 65px; /* below global app header */
   z-index: 10;
 
   padding: 14px 18px;
