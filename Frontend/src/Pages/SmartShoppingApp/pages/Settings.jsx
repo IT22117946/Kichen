@@ -1,0 +1,147 @@
+import React, { useState } from 'react';
+import { GlobeIcon, DollarSignIcon, BrainIcon, TrashIcon } from 'lucide-react';
+import { Sidebar } from '../components/Sidebar';
+import { ChatAssistant } from '../components/ChatAssistant';
+import { useLanguage } from '../context/LanguageContext';
+import { useCurrency } from '../context/CurrencyContext';
+import { useHistory } from '../context/HistoryContext';
+
+export function Settings() {
+  const { language, setLanguage, translations } = useLanguage();
+  const { currency, setCurrency } = useCurrency();
+  const { clearHistory } = useHistory();
+  const [voiceEnabled, setVoiceEnabled] = useState(true);
+  const [saveHistory, setSaveHistory] = useState(true);
+
+  return (
+    <div className="min-h-screen bg-[#E8F8F3]">
+      <Sidebar />
+      <div className="ml-[17rem] min-h-screen pl-8 pr-6 pt-6 overflow-x-hidden">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-8">
+            <h1 className="text-4xl font-bold text-[#1E5245] mb-2">Settings</h1>
+            <p className="text-[#2D5F4F] text-lg">
+              Manage your preferences and account settings
+            </p>
+          </div>
+          <div className="space-y-6">
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <div className="flex items-center space-x-3 mb-4">
+                <GlobeIcon className="text-[#2D9B81]" size={24} />
+                <h2 className="text-xl font-semibold text-[#1E5245]">
+                  {translations.languageTitle}
+                </h2>
+              </div>
+              <p className="text-[#2D5F4F] mb-4">
+                {translations.chooseLanguage}
+              </p>
+              <select
+                value={language}
+                onChange={e => setLanguage(e.target.value)}
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2D9B81]"
+              >
+                <option value="en">English</option>
+                <option value="si">සිංහල (Sinhala)</option>
+                <option value="ta">தமிழ் (Tamil)</option>
+              </select>
+            </div>
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <div className="flex items-center space-x-3 mb-4">
+                <DollarSignIcon className="text-[#2D9B81]" size={24} />
+                <h2 className="text-xl font-semibold text-[#1E5245]">
+                  {translations.currencyTitle}
+                </h2>
+              </div>
+              <p className="text-[#2D5F4F] mb-4">
+                {translations.selectCurrency}
+              </p>
+              <select
+                value={currency}
+                onChange={e => setCurrency(e.target.value)}
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2D9B81]"
+              >
+                <option value="USD">USD - US Dollar ($)</option>
+                <option value="EUR">EUR - Euro (€)</option>
+                <option value="LKR">LKR - Sri Lankan Rupee (Rs)</option>
+                <option value="INR">INR - Indian Rupee (₹)</option>
+                <option value="GBP">GBP - British Pound (£)</option>
+              </select>
+            </div>
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <div className="flex items-center space-x-3 mb-4">
+                <BrainIcon className="text-[#2D9B81]" size={24} />
+                <h2 className="text-xl font-semibold text-[#1E5245]">
+                  {translations.aiPreferences}
+                </h2>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-medium text-[#1E5245]">
+                      {translations.enableVoice}
+                    </p>
+                    <p className="text-sm text-[#2D5F4F]">
+                      {translations.useVoiceCommands}
+                    </p>
+                  </div>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={voiceEnabled}
+                      onChange={e => setVoiceEnabled(e.target.checked)}
+                      className="sr-only peer"
+                    />
+                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#D4F1E8] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#2D9B81]"></div>
+                  </label>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-medium text-[#1E5245]">
+                      {translations.saveSearchHistory}
+                    </p>
+                    <p className="text-sm text-[#2D5F4F]">
+                      {translations.storeSearches}
+                    </p>
+                  </div>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={saveHistory}
+                      onChange={e => setSaveHistory(e.target.checked)}
+                      className="sr-only peer"
+                    />
+                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#D4F1E8] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#2D9B81]"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <div className="flex items-center space-x-3 mb-4">
+                <TrashIcon className="text-red-600" size={24} />
+                <h2 className="text-xl font-semibold text-[#1E5245]">
+                  {translations.dataManagement}
+                </h2>
+              </div>
+              <p className="text-[#2D5F4F] mb-4">
+                {translations.clearAllData}
+              </p>
+              <button
+                onClick={() => {
+                  if (window.confirm(translations.confirmClear)) {
+                    clearHistory();
+                    alert(translations.dataCleared);
+                  }
+                }}
+                className="px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
+              >
+                {translations.resetAllData}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ChatAssistant />
+    </div>
+  );
+}
+
