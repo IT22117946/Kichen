@@ -1,10 +1,31 @@
 @import "tailwindcss";
 
+/* Global responsive defaults */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
   background: linear-gradient(to bottom, #eafbf0, #ddf5e2);
   color: #2a2e35;
+}
+
+img, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button, input, select, textarea {
+  font: inherit;
 }
 
 /* HERO */
@@ -50,6 +71,7 @@ body {
   color: #164e3b;
   font-size: 44px;
   margin-bottom: 20px;
+  line-height: 1.15;
 }
 
 .hero-box p {
@@ -242,6 +264,28 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  .hero-box {
+    padding: 28px 18px;
+    border-radius: 22px;
+  }
+
+  .hero-box h1 {
+    font-size: 30px;
+  }
+
+  .hero-box p {
+    font-size: 16px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: min(360px, 100%);
+  }
+
   .research {
     grid-template-columns: 1fr;
   }

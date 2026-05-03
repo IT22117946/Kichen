@@ -97,7 +97,7 @@ export function ProductDetails() {
     return (
         <div className="min-h-screen bg-[#E8F8F3]">
             <Sidebar />
-            <div className="ml-[17rem] min-h-screen pl-8 pr-6 pt-6 overflow-x-hidden">
+            <div className="min-h-screen overflow-x-hidden px-4 pt-4 md:ml-[17rem] md:px-8 md:pt-6">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <button
                         onClick={() => navigate(-1)}
@@ -227,8 +227,11 @@ export function ProductDetails() {
                                             </p>
                                             <div className={`w-full h-1.5 rounded-full mt-3 overflow-hidden ${wastageInfo.wastage_risk === 'High' ? 'bg-red-100' : 'bg-green-100'
                                                 }`}>
-                                                <div className={`h-full w-[${wastageInfo.wastage_risk === 'High' ? '80%' : '30%'}] ${wastageInfo.wastage_risk === 'High' ? 'bg-red-500' : 'bg-green-500'
-                                                    }`}></div>
+                                                <div
+                                                    className={`h-full ${wastageInfo.wastage_risk === 'High' ? 'bg-red-500' : 'bg-green-500'
+                                                        }`}
+                                                    style={{ width: wastageInfo.wastage_risk === 'High' ? '80%' : '30%' }}
+                                                />
                                             </div>
                                         </div>
                                     </div>

@@ -45,7 +45,7 @@ export function Recommendations() {
   return (
     <div className="min-h-screen bg-[#E8F8F3]">
       <Sidebar />
-      <div className="ml-[17rem] min-h-screen pl-8 pr-6 pt-6 overflow-x-hidden">
+      <div className="min-h-screen overflow-x-hidden px-4 pt-4 md:ml-[17rem] md:px-8 md:pt-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <div className="inline-flex items-center space-x-2 bg-[#D4F1E8] text-[#2D9B81] mb-3 px-3 py-1.5 rounded-md font-semibold tracking-wide uppercase text-xs">

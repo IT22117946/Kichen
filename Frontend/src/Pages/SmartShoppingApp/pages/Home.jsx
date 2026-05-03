@@ -40,7 +40,7 @@ export function Home() {
   return (
     <div className="min-h-screen bg-[#E8F8F3]">
       <Sidebar />
-      <div className="ml-[17rem] min-h-screen pl-8 pr-6 pt-6 overflow-x-hidden">
+      <div className="min-h-screen overflow-x-hidden px-4 pt-4 md:ml-[17rem] md:px-8 md:pt-6">
         <div className="max-w-5xl mx-auto min-w-0">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-[#1E5245] mb-4 leading-tight">

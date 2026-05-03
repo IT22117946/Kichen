@@ -123,13 +123,13 @@ export function ChatAssistant() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 bg-[#2D9B81] text-white p-4 rounded-full shadow-lg hover:bg-[#267A68] transition-all hover:scale-110 z-50"
+          className="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-[#2D9B81] text-white p-4 rounded-full shadow-lg hover:bg-[#267A68] transition-all hover:scale-110 z-50"
         >
           <MessageCircleIcon size={28} />
         </button>
       )}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 w-96 h-[500px] bg-white rounded-lg shadow-2xl flex flex-col z-50">
+        <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 w-[min(24rem,calc(100vw-2rem))] h-[min(500px,calc(100vh-8rem))] bg-white rounded-lg shadow-2xl flex flex-col z-50">
           <div className="bg-[#2D9B81] text-white p-4 rounded-t-lg flex justify-between items-center">
             <h3 className="font-semibold">AI Shopping Assistant</h3>
             <button
